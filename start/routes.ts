@@ -1,18 +1,17 @@
 import Route from "@ioc:Adonis/Core/Route";
 
+//  login
+Route.post("login", "AuthController.login");
+
+// views
+
 Route.get("/", async ({ view }) => {
   return view.render("welcome");
 });
 
-// Route.group(() => {
-//   Route.post("/users", "UsersController.create");
-//   Route.get("/users", "UsersController.index");
-//   Route.get("/users/:id", "UsersController.show");
-// }).prefix("/api");
-
+// api
 Route.group(() => {
   Route.resource("users", "UsersController");
 })
   .prefix("api")
-  .as("api")
-  .middleware("auth");
+  .as("api");
