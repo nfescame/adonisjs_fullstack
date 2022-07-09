@@ -1,0 +1,1 @@
+# adonisjs_fullstack
