@@ -1,7 +1,10 @@
 import Route from "@ioc:Adonis/Core/Route";
 
 //  login
-Route.post("login", "AuthController.login");
+
+Route.post("login", "AuthController.login").namespace(
+  "App/Controllers/Http/ApiV1"
+);
 
 // views
 
@@ -14,4 +17,5 @@ Route.group(() => {
   Route.resource("users", "UsersController");
 })
   .prefix("api")
-  .as("api");
+  .as("api")
+  .namespace("App/Controllers/Http/ApiV1");
